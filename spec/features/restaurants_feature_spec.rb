@@ -79,23 +79,6 @@ describe 'restaurants' do
 		end
 	end
 
-	
-
-	context 'deleting restaurants' do
-
-		before do
-			Restaurant.create(:name => "KFC")
-		end
-
-		it 'removes a restaurant when a user clicks a delete link' do
-			visit '/restaurants'
-			click_link 'Delete KFC'
-			expect(page).not_to have_content 'KFC'
-			expect(page).to have_content 'Restaurant deleted successfully'
-		end
-
-	end
-
 	context 'an invalid restaurant' do
 
 		it 'does not let you submit a name that is too short' do

@@ -45,6 +45,7 @@ gem 'rspec-rails'
 gem 'capybara'
 gem 'rspec-collection_matchers'
 gem 'warden'
+gem 'database_cleaner'
 
 end
 
