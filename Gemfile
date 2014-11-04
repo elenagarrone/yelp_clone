@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'devise'
+gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -38,10 +39,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rspec-rails', group: :test
-gem 'capybara', group: :test
-gem 'rspec-collection_matchers', group: :test
+group :development, :test do 
 
-gem 'devise'
-gem 'omniauth-facebook'
+gem 'rspec-rails'
+gem 'capybara'
+gem 'rspec-collection_matchers'
+gem 'warden'
+
+end
+
+
 
