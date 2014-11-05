@@ -25,5 +25,12 @@ describe 'reviewing' do
       visit '/'
       expect(page).not_to have_link('Review KFC')
     end
+
+    it 'can be deleted' do
+      @kfc.reviews.create(thoughts: 'so so', rating: '3', user: @elena)
+      visit '/'
+      expect(page).to have_link('Delete review')
+    end
+
   end
 end
