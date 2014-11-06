@@ -89,8 +89,21 @@ describe 'restaurants' do
 			expect(page).not_to have_css 'h2', text: 'kf'
 			expect(page).to have_content 'error'
 		end
+	end
+
+end
+
+describe '#avarage_rating' do
+
+	context 'no reviews' do
+
+		it "returns 'N/A' when there are no reviews" do
+			restaurant = Restaurant.create(name: 'The Ivy')
+			expect(restaurant.avarage_rating).to eq 'N/A'
+		end
 
 	end
+
 end
 
 

@@ -13,9 +13,7 @@ describe 'reviewing' do
   	it 'allows users to leave a review using a form' do
   		visit '/restaurants'
   		click_link 'Review KFC'
-  		fill_in 'Thoughts', with: 'so so'
-  		select '3', from: 'Rating'
-  		click_button 'Leave Review'
+  		leave_review('so so', '3')
   		expect(current_path).to eq '/restaurants'
   		expect(page).to have_content('so so')
   	end
@@ -30,6 +28,23 @@ describe 'reviewing' do
       @kfc.reviews.create(thoughts: 'so so', rating: '3', user: @elena)
       visit '/'
       expect(page).to have_link('Delete review')
+    end
+
+    def leave_review(thoughts, rating)
+      visit '/'
+      click_link 'Review KFC'
+      fill_in 'Thoughts', with: thoughts
+      select rating, from: 'Rating'
+      click_button 'Leave Review'
+    end
+
+    it 'displays an avarage rating for all reviews' do
+      leave_review('So so', '3')
+      @mike = User.create(email: "mike@hotmail.it", password: "12345678", password_confirmation: "12345678")
+      logout @elena
+      login_as @mike
+      leave_review('Great', '5')
+      expect(page).to have_content('Avarage rating: 4')
     end
 
   end

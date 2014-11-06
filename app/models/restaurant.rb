@@ -13,4 +13,8 @@ class Restaurant < ActiveRecord::Base
       reviews.find_by(user: user)
   end
 
+  def avarage_rating
+    'N/A'
+  end
+
 end
