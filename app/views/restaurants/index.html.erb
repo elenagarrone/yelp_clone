@@ -16,6 +16,7 @@
 		<% else %>
 			<p>No reviews.</p>
 		<% end %>
+		<h3>Avarage rating: <%= restaurant.avarage_rating.to_i%></h3>
 			<% unless restaurant.has_review(current_user) %>
 				<%= link_to "Review #{restaurant.name}", new_restaurant_reviews_path(restaurant) %>
 			<% end %>
