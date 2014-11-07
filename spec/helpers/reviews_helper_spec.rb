@@ -8,6 +8,10 @@ describe ReviewsHelper do
       expect(helper.start_rating('N/A')).to eq 'N/A'
     end
 
+    it 'returns three black stars and two white stars for three' do
+      expect(helper.start_rating(3)).to eq '★★★☆☆'
+    end
+
   end
 
 end
