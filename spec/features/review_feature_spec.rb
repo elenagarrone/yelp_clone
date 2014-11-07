@@ -44,7 +44,7 @@ describe 'reviewing' do
       logout @elena
       login_as @mike
       leave_review('Great', '5')
-      expect(page).to have_content('Avarage rating: 4')
+      expect(page).to have_content('Avarage rating: ★★★★☆')
     end
 
   end
