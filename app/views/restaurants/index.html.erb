@@ -6,7 +6,7 @@
 			<ul>
 				<%restaurant.reviews.each do |review| %>
 					<li>
-						<%= review.thoughts %>, <strong><%= review.rating %></strong>/5
+					<%= review.thoughts %>, <strong><%= review.rating %></strong>/5
 							<% if current_user == review.user %>
 								<%= link_to "Delete review", restaurant_reviews_path(restaurant, :id => review.id), method: :delete %>
 							<% end %>
@@ -16,7 +16,7 @@
 		<% else %>
 			<p>No reviews.</p>
 		<% end %>
-		<h3>Avarage rating: <%= restaurant.avarage_rating.to_i%></h3>
+		<h3>Avarage rating: <%= star_rating(restaurant.avarage_rating) %></h3>
 			<% unless restaurant.has_review(current_user) %>
 				<%= link_to "Review #{restaurant.name}", new_restaurant_reviews_path(restaurant) %>
 			<% end %>
