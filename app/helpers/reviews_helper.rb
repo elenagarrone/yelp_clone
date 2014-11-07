@@ -1,13 +1,9 @@
 module ReviewsHelper
 
   def start_rating(rating)
-    rating
-  end
-
-  def start_rating(rating)
-    return rating unless rating.is_a?(Fixnum)
+    return rating unless rating.respond_to?(:round)
     remainder = (5 - rating)
-    "★" * rating +  "☆" * remainder
+    "★" * rating.round +  "☆" * remainder
   end
 
 end
