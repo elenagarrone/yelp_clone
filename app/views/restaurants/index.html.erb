@@ -7,10 +7,10 @@
 				<%restaurant.reviews.each do |review| %>
 					<li>
 					<%= review.thoughts %>, <strong><%= review.rating %></strong>/5
-					<%= link_to 'Endorse', restaurant_reviews_endorsements_path(review), method: :post, class: 'endorsement-link' %>
+					<%= link_to 'Endorse', review_endorsements_path(review), method: :post, class: 'endorsement-link' %>
 					<span class='endorsement_count'> <%review.endorsements.count %></span> endorsements
 							<% if current_user == review.user %>
-								<%= link_to "Delete review", restaurant_reviews_path(restaurant, :id => review.id), method: :delete %>
+								<%= link_to "Delete review", review_path(:restaurant_id => restaurant.id, :id => review.id), method: :delete %>
 							<% end %>
 					</li>
 				<% end %>
@@ -20,7 +20,7 @@
 		<% end %>
 		<h3>Avarage rating: <%= star_rating(restaurant.avarage_rating) %></h3>
 			<% unless restaurant.has_review(current_user) %>
-				<%= link_to "Review #{restaurant.name}", new_restaurant_reviews_path(restaurant) %>
+				<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %>
 			<% end %>
 		<% if current_user == restaurant.user %>
 			<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
