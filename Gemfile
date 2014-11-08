@@ -49,6 +49,7 @@ gem 'rspec-collection_matchers'
 gem 'warden'
 gem 'database_cleaner'
 gem 'pry'
+gem 'poltergeist'
 
 end
 
