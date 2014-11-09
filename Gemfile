@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 
 gem 'launchy'
 
+gem 'paperclip'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
