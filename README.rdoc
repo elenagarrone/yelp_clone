@@ -33,3 +33,40 @@ Technologies:
 - Capybara
 - RSpec
 - Device
+
+How to use:
+-----------
+Clone the repo:
+```shell
+$ git clone https://github.com/elenagarrone/yelp_clone.git
+```
+Change into the directory:
+```shell
+$ cd yelp_clone
+```
+Supposing you have installed <a href='http://www.postgresql.org/'>PostgreSQL</a>, create the databases:
+```shell
+$ psql
+> create database "yelp_clone_development";
+#and
+> create database "yelp_clone_test";
+#after they have been created, type:
+>\q
+```
+Install the gems:
+```shell
+$ bundle install
+```
+Try it on localhost:
+```shell
+$ rackup
+#then on the browser go to:
+localhost:9292
+```
+
+How to test it:
+--------------
+From inside the directory run:
+```shell
+$ rspec
+```
