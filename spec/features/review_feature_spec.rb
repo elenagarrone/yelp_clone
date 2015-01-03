@@ -4,19 +4,19 @@ describe 'reviewing' do
 
   context 'leave a review' do
 
-  	before do
-     @elena = User.create(email: "elena@hotmail.it", password: "12345678", password_confirmation: "12345678")
-     login_as @elena
-     @kfc = @elena.restaurants.create(name:'KFC')
-  	end
+    before do
+      @elena = User.create(email: "elena@hotmail.it", password: "12345678", password_confirmation: "12345678")
+      login_as @elena
+      @kfc = @elena.restaurants.create(name:'KFC')
+    end
 
-  	it 'allows users to leave a review using a form' do
-  		visit '/restaurants'
-  		click_link 'Review KFC'
-  		leave_review('so so', '3')
-  		expect(current_path).to eq '/restaurants'
-  		expect(page).to have_content('so so')
-  	end
+    it 'allows users to leave a review using a form' do
+      visit '/restaurants'
+      click_link 'Review KFC'
+      leave_review('so so', '3')
+      expect(current_path).to eq '/restaurants'
+      expect(page).to have_content('so so')
+    end
 
     it 'should have only one review for each restaurant' do
       @kfc.reviews.create(thoughts: 'so so', rating: '3', user: @elena)
@@ -48,4 +48,5 @@ describe 'reviewing' do
     end
 
   end
+
 end

@@ -16,3 +16,5 @@
 /tmp
 
 /config/secrets.yml
+public/.DS_Store
+.DS_Store

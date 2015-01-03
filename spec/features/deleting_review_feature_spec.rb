@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe 'deleting reviews' do
 
-    before do
-     @elena = User.create(email: "elena@hotmail.it", password: "12345678", password_confirmation: "12345678")
-     @mike = User.create(email: "mike@hotmail.it", password: "12345678", password_confirmation: "12345678")
-     login_as @elena
-     @kfc = @elena.restaurants.create(name:'KFC')
-     @kfc.reviews.create(thoughts: 'so so', rating: '3', user: @elena)
-     logout @elena
-    end
+  before do
+   @elena = User.create(email: "elena@hotmail.it", password: "12345678", password_confirmation: "12345678")
+   @mike = User.create(email: "mike@hotmail.it", password: "12345678", password_confirmation: "12345678")
+   login_as @elena
+   @kfc = @elena.restaurants.create(name:'KFC')
+   @kfc.reviews.create(thoughts: 'so so', rating: '3', user: @elena)
+   logout @elena
+  end
 
   context 'when logged in as another user' do
 
@@ -29,6 +29,7 @@ describe 'deleting reviews' do
       click_link 'Delete review'
       expect(page).to have_content 'Review deleted successfully'
     end
+    
   end
 
 end
