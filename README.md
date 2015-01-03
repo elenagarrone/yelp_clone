@@ -42,8 +42,8 @@ Technologies:
 
 To do:
 ======
-- add CSS
-- deploy to Heroku
+- [ ] add CSS
+- [ ] deploy to Heroku
 
 How to use:
 -----------
