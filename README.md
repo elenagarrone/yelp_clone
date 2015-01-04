@@ -55,24 +55,21 @@ Change into the directory:
 ```shell
 $ cd yelp_clone
 ```
-Supposing you have installed <a href='http://www.postgresql.org/'>PostgreSQL</a>, create the databases:
-```shell
-$ psql
-> create database "yelp_clone_development";
-#and
-> create database "yelp_clone_test";
-#after they have been created, type:
->\q
-```
 Install the gems:
 ```shell
 $ bundle install
 ```
+Supposing you have installed <a href='http://www.postgresql.org/'>PostgreSQL</a>, create the databases:
+```shell
+$ bin/rake db:create
+# if this doesn't work, you may need to run:
+$ bin/rake db:create RAILS_ENV=test
+```
 Try it on localhost:
 ```shell
-$ rackup
+$ bin/rails server
 #then on the browser go to:
-localhost:9292
+localhost:3000
 ```
 
 How to test it:
