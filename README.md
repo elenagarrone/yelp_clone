@@ -18,14 +18,9 @@ Specification:
 - Users can only edit/delete restaurants which they've created
 - Users can only leave one review per restaurant
 - Users can delete their own reviews
-- Some indication should be given on the page (as part of the layout) whether the user is currently logged in, along with links to the available actions (i.e. Logout/Edit account is signed in, otherwise Sign In/Sign Up)
+- Some indication is given on the page (as part of the layout) whether the user is currently logged in, along with links to the available actions (i.e. Logout/Edit account is signed in, otherwise Sign In/Sign Up)
 - The email address of the reviewer should be displayed as part of the review
-- Optional - Users can't review a restaurant which they created
-- Currently, when writing a review, we have to go to a separate page and trigger a page refresh. Migrate the functionality to happen asynchronously with AJAX. We'll also have to set up Poltergeist to enable us to run JS-enabled tests.
-- Create a helper method to allow ratings and average ratings to be displayed as stars (e.g.) rather than numbers
-- Use CSS to enhance the overall design of the site
-- Refactor your more complex views to use partials
-- Optional - Add the ability for users to add an image to a restaurant, by pointing to an external image URL
+- Ratings and average ratings are displayed as stars rather than numbers
 
 Technologies:
 -------------
@@ -43,9 +38,10 @@ Technologies:
 To do:
 ======
 - [ ] add CSS
+- [ ] amazon web services to store the images
 - [ ] deploy to Heroku
 
-How to use:
+How to test:
 -----------
 Clone the repo:
 ```shell
@@ -55,29 +51,11 @@ Change into the directory:
 ```shell
 $ cd yelp_clone
 ```
-Supposing you have installed <a href='http://www.postgresql.org/'>PostgreSQL</a>, create the databases:
-```shell
-$ psql
-> create database "yelp_clone_development";
-#and
-> create database "yelp_clone_test";
-#after they have been created, type:
->\q
-```
 Install the gems:
 ```shell
 $ bundle install
 ```
-Try it on localhost:
-```shell
-$ rackup
-#then on the browser go to:
-localhost:9292
-```
-
-How to test it:
---------------
-From inside the directory run:
+Run:
 ```shell
 $ rspec
 ```
